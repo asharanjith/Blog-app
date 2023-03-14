@@ -76,11 +76,22 @@ Install this project with:
 
 `bundle install`
 
+Setup database using 
+
+`rails db:create
+rails db: migrate`
+
 ### Usage
 
 To run the project, execute the following command:
 
 `rails s`
+
+### Run tests
+
+To run tests, execute the following command:
+
+`bundle exec rspec`
 
 NB: You need to create an `env` file for your database credentials
 
