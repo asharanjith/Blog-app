@@ -1,3 +1,10 @@
-<h1>Here is the list of users</h1>
+<div class="usersContainer">
 
-<%= link_to "Back", root_path %>
+    <% @users.each do |user| %>
+        <a href="/users/<%= user.id %>" class="userLink">
+            <%= render partial: "user", locals: {user: user} %>  
+        </a>
+    <% end %>  
+
+</div>
+
