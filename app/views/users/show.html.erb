@@ -1,1 +1,26 @@
-<h1>Here is a user</h1>
+<div class="user">
+    <%= render partial: "user", locals: {user: @user} %>
+</div>
+
+<div class="bio">
+    <h2 class="bioTitle">Bio</h2>
+    <p class="bioText"><%= @user.bio %></p>
+</div>
+
+<div class="postsContianer">
+    <% count = @user.postsCounter %>
+    <% @user.recent_posts.each do |post| %>
+        <div class="post">
+            <h3 class="postTitle">Post#<%= count %></h3>
+            <p class="postText"><%= post.text %></p>
+            <div class="counters">
+                <p class="likesCounter">Likes: <%= post.likesCounter || 0 %></p>
+                <p class="commentsCounter">Comments: <%= post.commentsCounter || 0 %></p>
+            </div>
+        </div>  
+        <% count -= 1 %>
+    <% end %>
+</div>
+
+
+    <a href=<%= "#{@user.id}/posts"%> class="allPostsLink"><button class="allPostButton">See all posts</button></a>

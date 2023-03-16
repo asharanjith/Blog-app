@@ -1,1 +1,23 @@
-<h1>Here is a post by the user</h1>
+<div class="post">
+    <h3 class="postTitle">Post#<%= @post.id %> by <%= @post.author.name %></h3>
+    <div class="counters">
+        <p class="likesCounter">Likes: <%= @post.likesCounter || 0 %></p>
+        <p class="commentsCounter">Comments: <%= @post.commentsCounter || 0 %></p>
+    </div>
+    <p class="postText"><%= @post.text %></p>
+    
+</div>
+
+<div class="commentsContainer">
+    <% if @post.comments.empty? %>
+        <p>No comments yet</p>
+    <% else %>
+                <div class="comments">
+
+        <% @post.comments.each do |comment| %>
+                <p class="comment"><%= comment.author.name %> : <%= comment.text%></p>
+        <% end %>
+                    </div>
+
+    <% end %>
+</div>
