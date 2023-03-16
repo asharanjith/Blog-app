@@ -4,20 +4,32 @@
         <p class="likesCounter">Likes: <%= @post.likesCounter || 0 %></p>
         <p class="commentsCounter">Comments: <%= @post.commentsCounter || 0 %></p>
     </div>
+
     <p class="postText"><%= @post.text %></p>
+    <div class="buttonContainer">
+        <%=form_with model: @like, url: user_post_likes_path(@post.author.id, @post), local: true  do |form| %>
+            <p>
+                <%= form.submit "Add Like" %>
+            </p>
+        <% end %>
+        <button class="buttons">
+            <%= link_to "Add comment", new_user_post_comment_path(@post.author.id, @post) %>
+        </button>
+    </div>
+
     
 </div>
 
 <div class="commentsContainer">
+<div class="comments">
     <% if @post.comments.empty? %>
-        <p>No comments yet</p>
-    <% else %>
-                <div class="comments">
+        <p  class="comment">No comments yet</p>
+    <% else %>        
 
         <% @post.comments.each do |comment| %>
                 <p class="comment"><%= comment.author.name %> : <%= comment.text%></p>
-        <% end %>
-                    </div>
+        <% end %>                   
 
-    <% end %>
+    <% end %>    
+</div>
 </div>

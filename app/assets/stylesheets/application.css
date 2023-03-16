@@ -25,9 +25,9 @@ a:hover {
 
 .usersContainer,
 .postsContainer,
-.commentsContainer {
+.commentsContainer,
+.formContainer {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -133,4 +133,135 @@ a:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.buttons {
+  padding: 10px 20px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttons a {
+  text-decoration: none;
+}
+
+.buttonContainer form input {
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.postsButton {
+  background: #333;
+  padding: 10px 20px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.postsButton a {
+  text-decoration: none;
+  color: floralwhite;
+}
+
+.formContainer,
+.addComment {
+  max-width: 700px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.formContainer h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.formContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.formContainer form input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formContainer form textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formContainer form button {
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addComment h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.addComment form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.addComment form input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.addComment form textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
 }

@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   has_many :likes, foreign_key: :post_id
   after_save :update_posts_counter
 
-  validates :title, presence: true, length: { minimum: 5, maximum: 250 }
+  validates :title, presence: true, length: { minimum: 3, maximum: 250 }
+  validates :text, presence: true, length: { minimum: 3, maximum: 1000 }
   validates :commentsCounter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likesCounter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 

@@ -1,8 +1,10 @@
 <div class="user">
     <%= render partial: "users/user", locals: {user: @user} %>
+    
 </div>
 
-<div class="postsContainer">
+
+<div class="postsContainer">    
     <% count = 1 %>
     <% @posts.each do |post| %>
         <a href=<%= "posts/#{post.id}" %> class="postLink">
@@ -28,4 +30,8 @@
         </a>
         <% count += 1 %>
     <% end %>
+    <button class="postsButton">
+        <%= link_to "Create new post", new_user_post_path %>
+    </button>
 </div>
+
