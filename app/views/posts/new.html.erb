@@ -1,0 +1,18 @@
+<div class="formContainer">
+  <h1>Add new post</h1>
+  <div>
+      <%= form_with model: @post, url: user_posts_path , local: true do |form| %>
+      <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+      </p>
+      <p>
+        <%= form.label :text %><br>
+        <%= form.text_area :text %>
+      </p>
+      <p>
+        <%= form.submit 'Submit post' %>
+      </p>
+    <% end %>
+  </div>
+</div>
