@@ -6,15 +6,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash[:sucess] = 'Post created successfully'
       redirect_to user_posts_path(params[:user_id])
     else
+      flash[:error] = 'Post not created'
       render :new
     end
   end
 
   def index
     @user = User.find_by(id: params[:user_id])
-    @posts = Post.where(author_id: params[:user_id])
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
