@@ -107,6 +107,11 @@ NB: You need to create an `env` file for your database credentials
 - Twitter: [@asha_cep](https://twitter.com/asha_cep)
 - LinkedIn: [asha-vijayan](www.linkedin.com/in/ashavijayan)
 
+👤 **Riyana**
+
+- GitHub: [@ibtisam34](https://github.com/ibtisam34)
+- LinkedIn: [Falis](https://linkedin.com/in/falis-abdikani/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
