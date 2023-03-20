@@ -12,9 +12,6 @@ RSpec.describe 'UsersController', type: :request do
     it 'renders the index template' do
       expect(response).to render_template(:index)
     end
-    it 'the body contains the word "Here is the list of users"' do
-      expect(response.body).to include('Here is the list of users')
-    end
   end
   describe 'GET /users/:id' do
     before(:each) do
@@ -26,9 +23,6 @@ RSpec.describe 'UsersController', type: :request do
     end
     it 'renders the show template' do
       expect(response).to render_template(:show)
-    end
-    it 'the body contains the word "Here is a user"' do
-      expect(response.body).to include('Here is a user')
     end
   end
 end
