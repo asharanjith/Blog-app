@@ -5,11 +5,8 @@ RSpec.describe 'users#show', type: :feature do
     @user = User.create(name: 'John Doe', photo: 'https://picsum.photos/200/300', bio: 'I am a developer')
     @post_one = Post.create(author_id: @user.id, title: 'My first post', text: 'This is my first post')
     @post_second = Post.create(author_id: @user.id, title: 'My second post', text: 'This is my second post')
-
     Comment.create(author_id: @user.id, post_id: @post_one.id, text: 'This is my first comment')
     Comment.create(author_id: @user.id, post_id: @post_one.id, text: 'This is my second comment')
-
-
     visit user_path(@user.id)
   end
 
