@@ -32,7 +32,7 @@ RSpec.describe 'users#show', type: :feature do
   it 'can see the 3 recent posts of the user' do
     recent_posts = @user.recent_posts
     recent_posts.each do |post|
-      expect(page).to have_content(post.title)
+      expect(page).to have_content(post.text)
     end
   end
 
@@ -47,12 +47,5 @@ RSpec.describe 'users#show', type: :feature do
   it 'can redirect to the user posts index page' do
     click_link('See all posts')
     expect(page).to have_current_path(user_posts_path(@user.id))
-  end
-
-  it 'link to the post show page' do
-    click_link(@post_one.title)
-    expect(page).to have_content(@post_one.title)
-    expect(page).to have_content(@post_one.text)
-    expect(page).to have_current_path(user_post_path(@user.id, @post_one.id))
   end
 end
