@@ -17,10 +17,21 @@ body {
 a {
   color: #333;
   text-decoration: none;
+  width: 65%;
+  padding: 17px;
+  margin: 0 auto;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.actions input {
+  width: 65%;
+  padding: 17px;
+  margin: 0 auto;
+  border: 2px solid #333;
+  font-size: 20px;
 }
 
 .usersContainer,
@@ -264,4 +275,42 @@ a:hover {
   border: 2px solid #333;
   border-radius: 5px;
   font-size: 16px;
+}
+
+.new_user {
+  width: 80%;
+  padding: 16px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.field,
+.actions {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="text"] {
+  width: 100%;
+  padding: 8px;
+}
+
+.additional_info {
+  width: 80%;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+.additional_info a {
+  width: 65%;
+  padding: 17px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
 }
