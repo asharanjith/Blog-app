@@ -293,7 +293,8 @@ a:hover {
 }
 
 .field input[type="email"],
-.field input[type="password"] {
+.field input[type="password"],
+.field input[type="text"] {
   width: 100%;
   padding: 8px;
 }
