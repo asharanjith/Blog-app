@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id]) || 'User not found'
-    @posts = @user.posts.order(created_at: :desc).limit(3)
+    if params[:id] == 'Sign out'
+      redirect_to root_path
+    else
+      @user = User.find_by(id: params[:id]) || 'User not found'
+    end
   end
 end

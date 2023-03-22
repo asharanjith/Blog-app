@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @post = Post.new
   end
@@ -15,12 +17,20 @@ class PostsController < ApplicationController
   end
 
   def index
-    @user = User.find_by(id: params[:user_id])
-    @posts = @user.posts.includes(:comments)
+    @posts = Post.where(author_id: params[:user_id]).order(created_at: :desc)
+    @user = User.includes(:posts).find(params[:user_id])
   end
 
   def show
     @post = Post.find_by(author_id: params[:user_id], id: params[:id]) || 'No posts yet'
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.comments.destroy_all
+    @post.likes.destroy_all
+    @post.destroy
+    redirect_to user_posts_path(params[:user_id])
   end
 
   private
