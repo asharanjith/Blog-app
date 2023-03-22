@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    post = Post.find_by(id: params[:post_id])
+    @comment = Comment.new(post:, author: current_user, text: comment_params[:text])
     if @comment.save
       redirect_to user_post_path(params[:user_id], params[:post_id])
     else
@@ -12,9 +14,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_post_path(params[:user_id], params[:post_id])
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:text).merge(author_id: current_user.id, post_id: params[:post_id])
+    params.require(:comment).permit(:text)
   end
 end

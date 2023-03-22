@@ -3,6 +3,12 @@
     <div class="counters">
         <p class="likesCounter">Likes: <%= @post.likesCounter || 0 %></p>
         <p class="commentsCounter">Comments: <%= @post.commentsCounter || 0 %></p>
+        <% if can? :destroy, @post %>
+            <%= link_to "Delete post", user_post_path(@post.author.id, @post), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure you want to delete this post?"
+            } %>
+        <% end %>
     </div>
 
     <p class="postText"><%= @post.text %></p>
@@ -28,6 +34,12 @@
 
         <% @post.comments.each do |comment| %>
                 <p class="comment"><%= comment.author.name %> : <%= comment.text%></p>
+                <% if can? :destroy, comment %>
+                    <%= link_to "Delete comment", user_post_comment_path(@post.author.id, @post.id, comment.id), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure you want to delete this comment?"
+                    } %>
+                <% end%>
         <% end %>                   
 
     <% end %>    
