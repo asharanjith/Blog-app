@@ -1,6 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/posts', type: :request do
+  fixtures :all
 
   path '/api/users/{user_id}/posts' do
     # You'll want to customize the parameter types...
