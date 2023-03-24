@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,7 +13,8 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
-
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   namespace :api do
     resources :users, only: [] do
       resources :posts, only: [:index] do
