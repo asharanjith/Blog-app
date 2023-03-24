@@ -1,3 +1,4 @@
+<div><%= render partial: "users/navBar" %></div>
 <div class="addComment">
     <h1>Add new comment to the post </h1>
     <%= form_with model: @comment, url: user_post_comments_path, local: true do |form| %>
